@@ -1,0 +1,37 @@
+{
+    "name": "flowsa/cachebuster",
+    "description": "Cache busting to ensure effective resource availability",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "cachebuster"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Flowsa",
+            "homepage": "https://flowsa.com"
+        }
+    ],
+    "support": {
+        "email": "admin@flowsa.com",
+        "issues": "https://github.com/developer/repo/issues?state=open",
+        "source": "https://github.com/developer/repo",
+        "docs": "https://github.com/developer/repo/blob/master/README.md"
+    },
+    "require": {
+        "craftcms/cms": "^4.3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "cachebuster\\cachebuster\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Flowsa Cachebuster",
+        "handle": "flowsa-cachebuster",
+        "developer": "Felix Mensah",
+        "developerUrl": "https://github.com/flowsa",
+        "class": "cachebuster\\cachebuster\\Cachebuster"
+    }
+}
