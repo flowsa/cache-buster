@@ -33,11 +33,24 @@ To install the plugin, follow these instructions.
 
 ## Configuring Cache Buster
 
--Insert text here-
+The Cache busting plugin is meant to ensure effective resource availability.
 
 ## Using Cache Buster
 
--Insert text here-
+find the twig template which has your styles.css and app.js references and modify it as follows:
+
+for css:
+
+{% set cssCacheBuster = craft.cachebustervariable.getModificationTime() %}
+<link rel="stylesheet" href="{{'/path/to/your/styles.css' ~ '?v=' ~ cssCacheBuster}}">
+
+for js:
+
+{% set jsCacheBuster = craft.cachebustervariable.getModificationTime() %}
+<script src="{{'/path/to/your/app.js' ~ '?v=' ~ jsCacheBuster}}"></script>
+
+Note: make sure $directoryPath points to the dist folder or where your compiled assets are:
+This can be located in cachebuster/src/variables/CachebusterVariable line 18. current implementation is $directoryPath = CRAFT_BASE_PATH . '/web/dist';
 
 ## Cache Buster Roadmap
 
