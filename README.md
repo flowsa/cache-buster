@@ -39,9 +39,8 @@ The Cache busting plugin is meant to ensure effective resource availability.
 
 find the twig template which has your styles.css and app.js references and modify it as follows:
 
-for css:
-
 ```
+for css:
 {% set cssCacheBuster = craft.cachebustervariable.getModificationTime() %}
 <link rel="stylesheet" href="{{'/path/to/your/styles.css' ~ '?v=' ~ cssCacheBuster}}">
 
