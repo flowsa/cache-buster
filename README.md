@@ -41,12 +41,18 @@ find the twig template which has your styles.css and app.js references and modif
 
 ```
 for css:
-{% set cssCacheBuster = craft.cachebustervariable.getModificationTime() %}
-<link rel="stylesheet" href="{{'/path/to/your/styles.css' ~ '?v=' ~ cssCacheBuster}}">
+{% if craft.app.hasProperty('cachebustervariable') %}
+    {% set cssCacheBuster = craft.cachebustervariable.getModificationTime() %}
+{% else %}
+    {% set cssCacheBuster = '' %}
+{% endif %}<link rel="stylesheet" href="{{'/path/to/your/styles.css' ~ '?v=' ~ cssCacheBuster}}">
 
 for js:
-
-{% set jsCacheBuster = craft.cachebustervariable.getModificationTime() %}
+{% if craft.app.hasProperty('cachebustervariable') %}
+    {% set jsCacheBuster = craft.cachebustervariable.getModificationTime() %}
+{% else %}
+    {% set jsCacheBuster = '' %}
+{% endif %}
 <script src="{{'/path/to/your/app.js' ~ '?v=' ~ jsCacheBuster}}"></script>
 
 ```
