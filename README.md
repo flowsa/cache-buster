@@ -42,18 +42,25 @@ find the twig template which has your styles.css and app.js references and modif
 ```
 for css:
 
-{% if craft.app.hasProperty('cachebustervariable') %}
+{% set pluginHandle = 'flowsa-cachebuster' %}
+{% set plugin = craft.app.plugins.getPlugin(pluginHandle, false) %}
+
+{% if plugin and plugin.isInstalled %}
     {% set cssCacheBuster = craft.cachebustervariable.getModificationTime() %}
 {% else %}
     {% set cssCacheBuster = '' %}
-{% endif %}<link rel="stylesheet" href="{{'/path/to/your/styles.css' ~ '?v=' ~ cssCacheBuster}}">
+{% endif %}
+<link rel="stylesheet" href="{{'/path/to/your/styles.css' ~ '?v=' ~ cssCacheBuster}}">
 
 ```
 
 ```
 for js:
 
-{% if craft.app.hasProperty('cachebustervariable') %}
+{{% set pluginHandle = 'flowsa-cachebuster' %}
+{% set plugin = craft.app.plugins.getPlugin(pluginHandle, false) %}
+
+{% if plugin and plugin.isInstalled %}
     {% set jsCacheBuster = craft.cachebustervariable.getModificationTime() %}
 {% else %}
     {% set jsCacheBuster = '' %}
