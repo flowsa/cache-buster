@@ -15,7 +15,7 @@ To install the plugin, follow these instructions.
 2. Add the following code to `composer.json`
 
         "repositories": {
-           "cache-buster": {
+           "cachebuster": {
               "type": "vcs",
               "url": "https://github.com/flowsa/cache-buster.git"
            },
@@ -23,7 +23,7 @@ To install the plugin, follow these instructions.
 
 3. Then tell Composer to load the plugin:
 
-        composer require /cache-buster
+        composer require flowsa/cachebuster
 
 4. In the Control Panel, go to Settings → Plugins and click the “Install” button for cache-buster.
 
